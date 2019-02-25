@@ -1,0 +1,1069 @@
+<html>
+
+<head>
+<style type="text/css">
+.inline {
+  background-color: #f7f7f7;
+  border:solid 1px #B0B0B0;
+}
+.error {
+	font-weight: bold;
+	color: #FF0000;
+}
+.warning {
+	font-weight: bold;
+}
+.message {
+	font-style: italic;
+}
+.source, .output, .warning, .error, .message {
+	padding: 0 1em;
+  border:solid 1px #F7F7F7;
+}
+.source {
+  background-color: #f5f5f5;
+}
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
+.center {
+  text-align: center;
+}
+.hl.num {
+  color: #AF0F91;
+}
+.hl.str {
+  color: #317ECC;
+}
+.hl.com {
+  color: #AD95AF;
+  font-style: italic;
+}
+.hl.opt {
+  color: #000000;
+}
+.hl.std {
+  color: #585858;
+}
+.hl.kwa {
+  color: #295F94;
+  font-weight: bold;
+}
+.hl.kwb {
+  color: #B05A65;
+}
+.hl.kwc {
+  color: #55aa55;
+}
+.hl.kwd {
+  color: #BC5A65;
+  font-weight: bold;
+}
+</style>
+<title>DATA607 Week 4 Project 1</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+.column-left{
+  float: left;
+  width: 4%;
+  text-align: center;
+}
+.column-center{
+  display: inline-block;
+  width: 96%;
+  text-align: left;
+}
+.h1-maroon{
+  color:#990000;
+}
+</style>
+
+</head>
+
+<body>
+
+<br />
+
+<div class="w3-sidebar w3-collapse w3-white w3-animate-left w3-large" style="z-index:3;width:300px;" id="mySidebar">
+
+<div class="w3-bar w3-blue w3-opacity w3-center">
+  <a class="w3-bar-item w3-button w3-hover-gray w3-opacity" style="width:33.33%" href="javascript:void(0)" onclick="openNav('nav01')">
+  <i class="fa fa-bars w3-xlarge"></i></a>
+  <a href="https://www.youtube.com/watch?time_continue=5&v=T5PXYl2FEUo" class="w3-bar-item w3-button" style="width:33.33%" target="_blank">
+  <img src="https://sps.cuny.edu/sites/all/themes/cuny/assets/img/icon-youtube.png" ></a>
+
+</div>
+
+<div id="nav01" class="w3-bar-block">
+  <a class="w3-button w3-hover-blue w3-opacity w3-hide-large w3-large w3-right" href="javascript:void(0)" onclick="w3_close()">A</a>
+  <!-- <a class="w3-bar-item w3-button w3-border-bottom w3-large" href="#"><img src="https://www.rstudio.com/wp-content/uploads/2016/09/RStudio-Logo-Blue-Gray-125.png" style="width:65%;"></a> -->
+    <a class="w3-bar-item w3-button w3-border-bottom w3-large" href="https://sps.cuny.edu/" target="_blank"><img src="https://sps.cuny.edu/sites/all/themes/cuny/assets/img/header_logo.png" style="width:80%; padding-top: 10px; padding-bottom: 10px; height: 72px;"></a>
+  <a class="w3-bar-item w3-button w3-hover-blue w3-opacity" href="#1">Data Import</a>
+  <a class="w3-bar-item w3-button w3-hover-blue w3-opacity" href="#2">Get the Information</a>
+  <a class="w3-bar-item w3-button w3-hover-blue w3-opacity" href="#3">Extract & Transform</a>
+  <a class="w3-bar-item w3-button w3-hover-blue w3-opacity" href="#4">Rating</a>
+  <a class="w3-bar-item w3-button w3-hover-blue w3-opacity" href="#5">Show Data</a>
+  <a class="w3-bar-item w3-button w3-hover-blue w3-opacity" href="#6">Create CSV</a>
+</div>
+
+<div id="nav02">
+  <a class="w3-bar-item w3-button" target="_blank" href="tryw3css_templates_black.htm"><img src="img_demo_black.png" style="width:100%;"></a>
+  <a class="w3-bar-item w3-button" target="_blank" href="tryw3css_examples_album.htm"><img src="img_demo_summer.jpg" style="width:100%;"></a>
+  <a class="w3-bar-item w3-button" target="_blank" href="tryw3css_examples_blog.htm"><img src="img_demo_blog.jpg" style="width:100%;"></a>
+</div>
+
+
+<div id="nav03" class="w3-bar-block">
+  <a class="w3-button w3-hover-blue w3-opacity w3-hide-large w3-large w3-right" href="https://sps.cuny.edu/" target="_blank"><img src="https://sps.cuny.edu/sites/all/themes/cuny/assets/img/header_logo.png" onclick="w3_close()">Ã</a>
+  <!-- <a class="w3-bar-item w3-button w3-border-bottom w3-large" href="#"><img src="https://www.rstudio.com/wp-content/uploads/2016/09/RStudio-Logo-Blue-Gray-125.png" style="width:65%;"></a> -->
+    <a class="w3-bar-item w3-button w3-border-bottom w3-large Rlogo" href="https://www.rstudio.com/"><img src="https://www.rstudio.com/wp-content/uploads/2016/09/RStudio-Logo-Blue-Gray-125.png" target="_blank" style="width:80%; padding-top: 10px; padding-bottom: 10px; height: 72px;"></a>
+
+</div>
+</div>
+
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+
+<div class="w3-main" style="margin-left:300px;"> 
+
+<div class="w3-top w3-theme w3-large w3-hide-large">
+  <i class="fa fa-bars w3-button w3-blue w3-opacity w3-xlarge" onclick="w3_open()"></i>
+</div>
+
+<header class="w3-container w3-blue w3-opacity w3-opacity w3-center">
+  <h3 class="w3-xxlarge w3-padding">DATA607 Week 4 Project 1</h3>
+  <a class="w3-bar-item w3-button w3-hover-blue w3-opacity w3-opacity w3-padding" href="https://www.linkedin.com/in/kleberperez/" target="_blank">
+    <span class="w3-large w3-padding w3-hover-sand">Kleber Perez</span>
+  </a>
+</header>
+
+<div class="w3-container w3-padding-large w3-section w3-light-grey">
+  <h1 class="h1-maroon w3-opacity" >Chess Tournament Summary</h1> 
+  <h4 class="w3-opacity w3-code ">In this project, you're given a text file with chess tournament results where the information has some structure.  Your job is to create an R Markdown file that generates a .CSV file (that could for example be imported into a SQL database) with the following information for all of the players:
+  Player's Name, Player's State, Total Number of Points, Player's Pre-Rating, and Average Pre Chess Rating of Opponents For the first player, the information would be: Gary Hua, ON, 6.0, 1794, 1605 1605 was calculated by using the pre-tournament opponents' ratings of 1436, 1563, 1600, 1610, 1649, 1663, 1716, and dividing by the total number of games played. If you have questions about the meaning of the data or the results, please post them on the discussion forum.  Data science, like chess, is a game of back and forth. The chess rating system (invented by a Minnesota statistician named Arpad Elo) has been used in many other contexts, including assessing relative strength of employment candidates by human resource departments. 
+    </h4> <br />
+    
+  <h6 class="w3-opacity"><em>You may want to first click the below links.</em></h6>
+  <a class="w3-button w3-blue w3-opacity w3-hover-white" href="https://rmarkdown.rstudio.com/lesson-1.html">Learn RMarkdown</a>
+  <a class="w3-button w3-blue w3-opacity w3-hover-white" href="https://github.com/kleberperez1/CUNY-SPS-Data607-Project1">CUNY SPS DATA607 Project 1</a>
+  <p class="w3-large">
+  <p>
+  
+<!-- QUESTION 1 -->
+  <div id="1" class="column-left w3-code cssHigh notranslate w3-hover-sand w3-border-0">
+    <span>1</span>
+  </div>
+  <div class="column-center w3-code w3-button w3-hover-blue w3-opacity w3-padding-large w3-section w3-light-grey">
+
+    <span class="h1-maroon">
+      <strong>Data Import</strong>
+    </span> 
+    <p>
+       First, we load the library to import the text file. <br />  
+       Next, we will be using 'stringr' package
+    </p> 
+
+<div class="chunk" id="unnamed-chunk-1"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">library</span><span class="hl std">(stringr)</span>
+<span class="hl kwd">library</span><span class="hl std">(knitr)</span>
+<span class="hl kwd">library</span><span class="hl std">(kableExtra)</span>
+
+<span class="hl com"># tournamentinfo &lt;- readLines(&quot;https://raw.githubusercontent.com/kleberperez1/CUNY-SPS-Data607-Project1/master/tournamentinfo.txt&quot;, header=F)</span>
+<span class="hl std">tournamentinfo</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">read.csv</span><span class="hl std">(</span><span class="hl kwd">paste0</span><span class="hl std">(</span><span class="hl str">&quot;C:/Users/Kleber/Documents/MSDS2019/DATA607/Week4/Project1/tournamentinfo.txt&quot;</span><span class="hl std">),</span> <span class="hl kwc">header</span><span class="hl std">=F)</span>
+<span class="hl kwd">head</span><span class="hl std">(tournamentinfo)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##                                                                                           V1
+## 1  -----------------------------------------------------------------------------------------
+## 2  Pair | Player Name                     |Total|Round|Round|Round|Round|Round|Round|Round| 
+## 3  Num  | USCF ID / Rtg (Pre-&gt;Post)       | Pts |  1  |  2  |  3  |  4  |  5  |  6  |  7  | 
+## 4  -----------------------------------------------------------------------------------------
+## 5      1 | GARY HUA                        |6.0  |W  39|W  21|W  18|W  14|W   7|D  12|D   4|
+## 6     ON | 15445895 / R: 1794   -&gt;1817     |N:2  |W    |B    |W    |B    |W    |B    |W    |
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">tail</span><span class="hl std">(tournamentinfo)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##                                                                                            V1
+## 191    63 | THOMAS JOSEPH HOSMER            |1.0  |L   2|L  48|D  49|L  43|L  45|H    |U    |
+## 192    MI | 15057092 / R: 1175   -&gt;1125     |     |W    |B    |W    |B    |B    |     |     |
+## 193 -----------------------------------------------------------------------------------------
+## 194    64 | BEN LI                          |1.0  |L  22|D  30|L  31|D  49|L  46|L  42|L  54|
+## 195    MI | 15006561 / R: 1163   -&gt;1112     |     |B    |W    |W    |B    |W    |B    |B    |
+## 196 -----------------------------------------------------------------------------------------
+</pre></div>
+</div></div>
+    
+  </div>
+
+</div>
+<!-- END QUESTION 1 -->
+
+<p class="w3-white">&nbsp;</p>
+
+<div class="w3-container w3-padding-large w3-section w3-light-grey">
+<!-- QUESTION 2 -->
+  <div id="2" class="column-left w3-code cssHigh notranslate w3-hover-sand w3-border-0">
+    <span>2</span>
+  </div>
+  <div class="column-center w3-code w3-button w3-hover-blue w3-opacity">
+    <span class="h1-maroon">
+      <strong>Get the information</strong>
+    </span> <br />
+    <span>
+      The first line contains data begins with a number of one or two digits, and is the only line that has this pattern. <br />The second line begins with a pair of upper case letters, and it is the line that follows this pattern.
+    </span> <br /><br />
+    
+<div class="chunk" id="unnamed-chunk-2"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">tournamentinfo</span> <span class="hl kwb">&lt;-</span> <span class="hl std">tournamentinfo[</span><span class="hl opt">-</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">4</span><span class="hl std">),]</span>
+<span class="hl kwd">head</span><span class="hl std">(tournamentinfo)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1]     1 | GARY HUA                        |6.0  |W  39|W  21|W  18|W  14|W   7|D  12|D   4|
+## [2]    ON | 15445895 / R: 1794   -&gt;1817     |N:2  |W    |B    |W    |B    |W    |B    |W    |
+## [3] -----------------------------------------------------------------------------------------
+## [4]     2 | DAKSHESH DARURI                 |6.0  |W  63|W  58|L   4|W  17|W  16|W  20|W   7|
+## [5]    MI | 14598900 / R: 1553   -&gt;1663     |N:2  |B    |W    |B    |W    |B    |W    |B    |
+## [6] -----------------------------------------------------------------------------------------
+## 131 Levels: ----------------------------------------------------------------------------------------- ...
+</pre></div>
+</div></div>
+    
+    <br />
+      <span>
+      With the dataframe in place, let's build another data frame containing the data, along with the patterns for eacth participant.
+    </span> <br /><br />
+    
+<div class="chunk" id="unnamed-chunk-3"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">playerInfo</span> <span class="hl kwb">&lt;-</span> <span class="hl std">tournamentinfo[</span><span class="hl kwd">seq</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl kwd">length</span><span class="hl std">(tournamentinfo),</span> <span class="hl num">3</span><span class="hl std">)]</span>
+<span class="hl std">ratingInfo</span> <span class="hl kwb">&lt;-</span> <span class="hl std">tournamentinfo[</span><span class="hl kwd">seq</span><span class="hl std">(</span><span class="hl num">2</span><span class="hl std">,</span> <span class="hl kwd">length</span><span class="hl std">(tournamentinfo),</span> <span class="hl num">3</span><span class="hl std">)]</span>
+</pre></div>
+</div></div>
+    
+  </div>
+  
+</div>
+<!-- END QUESTION 2 -->
+
+<p class="w3-white">&nbsp;</p>
+
+<div class="w3-container w3-padding-large w3-section w3-light-grey">
+<!-- QUESTION 3 -->
+  <div id="3" class="column-left w3-code cssHigh notranslate w3-hover-sand w3-border-0">
+    <span>3</span>
+  </div>
+  <div class="column-center w3-code w3-button w3-hover-blue w3-opacity w3-padding-large w3-section w3-light-grey">
+
+    <span class="h1-maroon">
+      <strong>Extracting & Transform</strong>
+    </span> 
+    <p>
+       Players Name: Consist of separate uppercase letters and hyphens.
+    </p> 
+
+<div class="chunk" id="unnamed-chunk-4"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">pairNo</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">as.integer</span><span class="hl std">(</span><span class="hl kwd">str_extract</span><span class="hl std">(playerInfo,</span> <span class="hl str">&quot;\\d+&quot;</span><span class="hl std">))</span>
+<span class="hl std">Name</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">str_trim</span><span class="hl std">(</span><span class="hl kwd">str_extract</span><span class="hl std">(playerInfo,</span> <span class="hl str">&quot;(\\w+\\s){2,3}&quot;</span><span class="hl std">))</span>
+<span class="hl std">Region</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">str_extract</span><span class="hl std">(ratingInfo,</span> <span class="hl str">&quot;\\w+&quot;</span><span class="hl std">)</span>
+<span class="hl std">Points</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">as.numeric</span><span class="hl std">(</span><span class="hl kwd">str_extract</span><span class="hl std">(playerInfo,</span> <span class="hl str">&quot;\\d+\\.\\d+&quot;</span><span class="hl std">))</span>
+<span class="hl std">Rating</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">as.integer</span><span class="hl std">(</span><span class="hl kwd">str_extract</span><span class="hl std">(</span><span class="hl kwd">str_extract</span><span class="hl std">(ratingInfo,</span> <span class="hl str">&quot;[^\\d]\\d{3,4}[^\\d]&quot;</span><span class="hl std">),</span> <span class="hl str">&quot;\\d+&quot;</span><span class="hl std">))</span>
+<span class="hl std">Opponents</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">str_extract_all</span><span class="hl std">(</span><span class="hl kwd">str_extract_all</span><span class="hl std">(playerInfo,</span> <span class="hl str">&quot;\\d+\\|&quot;</span><span class="hl std">),</span> <span class="hl str">&quot;\\d+&quot;</span><span class="hl std">)</span>
+</pre></div>
+<div class="warning"><pre class="knitr r">## Warning in stri_extract_all_regex(string, pattern, simplify = simplify, :
+## argument is not an atomic vector; coercing
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">Won</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">str_count</span><span class="hl std">(playerInfo,</span> <span class="hl str">&quot;\\Q|W  \\E&quot;</span><span class="hl std">)</span>
+<span class="hl std">Loose</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">str_count</span><span class="hl std">(playerInfo,</span> <span class="hl str">&quot;\\Q|L  \\E&quot;</span><span class="hl std">)</span>
+<span class="hl std">Draw</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">str_count</span><span class="hl std">(playerInfo,</span> <span class="hl str">&quot;\\Q|D  \\E&quot;</span><span class="hl std">)</span>
+</pre></div>
+</div></div>
+
+  </div>
+
+</div>
+<!-- END QUESTION 3 -->
+
+<p class="w3-white">&nbsp;</p>
+
+
+<div class="w3-container w3-padding-large w3-section w3-light-grey">
+<!-- QUESTION 4 -->
+  <div id="4" class="column-left w3-code cssHigh notranslate w3-hover-sand w3-border-0">
+    <span>4</span>
+  </div>
+  <div class="column-center w3-code w3-button w3-hover-blue w3-opacity">
+    <span class="h1-maroon">
+      <strong>Rating</strong>
+    </span> <br />
+    <span>
+      Unique pattern: any two digits followed by a "|" on line 1.
+    </span> <br /><br />
+    
+<div class="chunk" id="unnamed-chunk-5"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">mRating</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">length</span><span class="hl std">(playerInfo)</span>
+<span class="hl kwa">for</span> <span class="hl std">(i</span> <span class="hl kwa">in</span> <span class="hl num">1</span><span class="hl opt">:</span><span class="hl kwd">length</span><span class="hl std">(playerInfo)) {</span>
+  <span class="hl std">mRating[i]</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">round</span><span class="hl std">(</span><span class="hl kwd">mean</span><span class="hl std">(Rating[</span><span class="hl kwd">as.numeric</span><span class="hl std">(</span><span class="hl kwd">unlist</span><span class="hl std">(Opponents[pairNo[i]]))]),</span> <span class="hl kwc">digits</span> <span class="hl std">=</span> <span class="hl num">0</span><span class="hl std">)</span>
+<span class="hl std">}</span>
+<span class="hl std">opData</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">data.frame</span><span class="hl std">(Name, Region, Points, Rating, mRating, Won, Loose, Draw);</span>
+</pre></div>
+</div></div>
+    
+  </div>
+  
+</div>
+<!-- END QUESTION 4 -->
+
+<p class="w3-white">&nbsp;</p>
+
+
+<div class="w3-container w3-padding-large w3-section w3-light-grey">
+<!-- QUESTION 5 -->
+  <div id="5" class="column-left w3-code cssHigh notranslate w3-hover-sand w3-border-0">
+    <span>5</span>
+  </div>
+  <div class="column-center w3-code w3-button w3-hover-blue w3-opacity">
+    <span class="h1-maroon">
+      <strong>Show Data</strong>
+    </span> <br />
+    
+<div class="chunk" id="unnamed-chunk-6"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">colnames</span><span class="hl std">(opData)</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Player's Name&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Player's State&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Total Number of Points&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Player's Pre-Rating&quot;</span><span class="hl std">,</span> <span class="hl str">&quot; Average Pre Chess Rating of Opponents&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Won&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Lost&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Draw&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">kable</span><span class="hl std">(</span><span class="hl kwd">data.frame</span><span class="hl std">(opData))</span>
+</pre></div>
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Player.s.Name </th>
+   <th style="text-align:left;"> Player.s.State </th>
+   <th style="text-align:right;"> Total.Number.of.Points </th>
+   <th style="text-align:right;"> Player.s.Pre.Rating </th>
+   <th style="text-align:right;"> X.Average.Pre.Chess.Rating.of.Opponents </th>
+   <th style="text-align:right;"> Won </th>
+   <th style="text-align:right;"> Lost </th>
+   <th style="text-align:right;"> Draw </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> GARY HUA </td>
+   <td style="text-align:left;"> ON </td>
+   <td style="text-align:right;"> 6.0 </td>
+   <td style="text-align:right;"> 1794 </td>
+   <td style="text-align:right;"> 1605 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DAKSHESH DARURI </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 6.0 </td>
+   <td style="text-align:right;"> 1553 </td>
+   <td style="text-align:right;"> 1469 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ADITYA BAJAJ </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 6.0 </td>
+   <td style="text-align:right;"> 1384 </td>
+   <td style="text-align:right;"> 1564 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> PATRICK H SCHILLING </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 5.5 </td>
+   <td style="text-align:right;"> 1716 </td>
+   <td style="text-align:right;"> 1574 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> HANSHI ZUO </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 5.5 </td>
+   <td style="text-align:right;"> 1655 </td>
+   <td style="text-align:right;"> 1501 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> HANSEN SONG </td>
+   <td style="text-align:left;"> OH </td>
+   <td style="text-align:right;"> 5.0 </td>
+   <td style="text-align:right;"> 1686 </td>
+   <td style="text-align:right;"> 1519 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> GARY DEE SWATHELL </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 5.0 </td>
+   <td style="text-align:right;"> 1649 </td>
+   <td style="text-align:right;"> 1372 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> EZEKIEL HOUGHTON </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 5.0 </td>
+   <td style="text-align:right;"> 1641 </td>
+   <td style="text-align:right;"> 1468 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> STEFANO LEE </td>
+   <td style="text-align:left;"> ON </td>
+   <td style="text-align:right;"> 5.0 </td>
+   <td style="text-align:right;"> 1411 </td>
+   <td style="text-align:right;"> 1523 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ANVIT RAO </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 5.0 </td>
+   <td style="text-align:right;"> 1365 </td>
+   <td style="text-align:right;"> 1554 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> CAMERON WILLIAM MC </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 4.5 </td>
+   <td style="text-align:right;"> 1712 </td>
+   <td style="text-align:right;"> 1468 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> KENNETH J TACK </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 4.5 </td>
+   <td style="text-align:right;"> 1663 </td>
+   <td style="text-align:right;"> 1506 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> TORRANCE HENRY JR </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 4.5 </td>
+   <td style="text-align:right;"> 1666 </td>
+   <td style="text-align:right;"> 1498 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> BRADLEY SHAW </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 4.5 </td>
+   <td style="text-align:right;"> 1610 </td>
+   <td style="text-align:right;"> 1515 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ZACHARY JAMES HOUGHTON </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 4.5 </td>
+   <td style="text-align:right;"> 1220 </td>
+   <td style="text-align:right;"> 1484 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> MIKE NIKITIN </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 4.0 </td>
+   <td style="text-align:right;"> 1604 </td>
+   <td style="text-align:right;"> 1386 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RONALD GRZEGORCZYK </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 4.0 </td>
+   <td style="text-align:right;"> 1629 </td>
+   <td style="text-align:right;"> 1499 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DAVID SUNDEEN </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 4.0 </td>
+   <td style="text-align:right;"> 1600 </td>
+   <td style="text-align:right;"> 1480 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DIPANKAR ROY </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 4.0 </td>
+   <td style="text-align:right;"> 1564 </td>
+   <td style="text-align:right;"> 1426 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> JASON ZHENG </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 4.0 </td>
+   <td style="text-align:right;"> 1595 </td>
+   <td style="text-align:right;"> 1411 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DINH DANG BUI </td>
+   <td style="text-align:left;"> ON </td>
+   <td style="text-align:right;"> 4.0 </td>
+   <td style="text-align:right;"> 1563 </td>
+   <td style="text-align:right;"> 1470 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> EUGENE L MCCLURE </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 4.0 </td>
+   <td style="text-align:right;"> 1555 </td>
+   <td style="text-align:right;"> 1300 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ALAN BUI </td>
+   <td style="text-align:left;"> ON </td>
+   <td style="text-align:right;"> 4.0 </td>
+   <td style="text-align:right;"> 1363 </td>
+   <td style="text-align:right;"> 1214 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> MICHAEL R ALDRICH </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 4.0 </td>
+   <td style="text-align:right;"> 1229 </td>
+   <td style="text-align:right;"> 1357 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> LOREN SCHWIEBERT </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 3.5 </td>
+   <td style="text-align:right;"> 1745 </td>
+   <td style="text-align:right;"> 1363 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> MAX ZHU </td>
+   <td style="text-align:left;"> ON </td>
+   <td style="text-align:right;"> 3.5 </td>
+   <td style="text-align:right;"> 1579 </td>
+   <td style="text-align:right;"> 1507 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> GAURAV GIDWANI </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 3.5 </td>
+   <td style="text-align:right;"> 1552 </td>
+   <td style="text-align:right;"> 1222 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> SOFIA ADINA </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 3.5 </td>
+   <td style="text-align:right;"> 1507 </td>
+   <td style="text-align:right;"> 1522 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> CHIEDOZIE OKORIE </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 3.5 </td>
+   <td style="text-align:right;"> 1602 </td>
+   <td style="text-align:right;"> 1314 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> GEORGE AVERY JONES </td>
+   <td style="text-align:left;"> ON </td>
+   <td style="text-align:right;"> 3.5 </td>
+   <td style="text-align:right;"> 1522 </td>
+   <td style="text-align:right;"> 1144 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RISHI SHETTY </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 3.5 </td>
+   <td style="text-align:right;"> 1494 </td>
+   <td style="text-align:right;"> 1260 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> JOSHUA PHILIP MATHEWS </td>
+   <td style="text-align:left;"> ON </td>
+   <td style="text-align:right;"> 3.5 </td>
+   <td style="text-align:right;"> 1441 </td>
+   <td style="text-align:right;"> 1379 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> JADE GE </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 3.5 </td>
+   <td style="text-align:right;"> 1449 </td>
+   <td style="text-align:right;"> 1277 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> MICHAEL JEFFERY THOMAS </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 3.5 </td>
+   <td style="text-align:right;"> 1399 </td>
+   <td style="text-align:right;"> 1375 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> JOSHUA DAVID LEE </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 3.5 </td>
+   <td style="text-align:right;"> 1438 </td>
+   <td style="text-align:right;"> 1150 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> SIDDHARTH JHA </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 3.5 </td>
+   <td style="text-align:right;"> 1355 </td>
+   <td style="text-align:right;"> 1388 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> AMIYATOSH PWNANANDAM </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 3.5 </td>
+   <td style="text-align:right;"> 980 </td>
+   <td style="text-align:right;"> 1385 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> BRIAN LIU </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 1423 </td>
+   <td style="text-align:right;"> 1539 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> JOEL R HENDON </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 1436 </td>
+   <td style="text-align:right;"> 1430 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> FOREST ZHANG </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 1348 </td>
+   <td style="text-align:right;"> 1391 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> KYLE WILLIAM MURPHY </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 1403 </td>
+   <td style="text-align:right;"> 1248 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> JARED GE </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 1332 </td>
+   <td style="text-align:right;"> 1150 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ROBERT GLEN VASEY </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 1283 </td>
+   <td style="text-align:right;"> 1107 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> JUSTIN D SCHILLING </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 1199 </td>
+   <td style="text-align:right;"> 1327 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DEREK YAN </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 1242 </td>
+   <td style="text-align:right;"> 1152 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> JACOB ALEXANDER LAVALLEY </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 377 </td>
+   <td style="text-align:right;"> 1358 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ERIC WRIGHT </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 2.5 </td>
+   <td style="text-align:right;"> 1362 </td>
+   <td style="text-align:right;"> 1392 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> DANIEL KHAIN </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 2.5 </td>
+   <td style="text-align:right;"> 1382 </td>
+   <td style="text-align:right;"> 1356 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> MICHAEL J MARTIN </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 2.5 </td>
+   <td style="text-align:right;"> 1291 </td>
+   <td style="text-align:right;"> 1286 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> SHIVAM JHA </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 2.5 </td>
+   <td style="text-align:right;"> 1056 </td>
+   <td style="text-align:right;"> 1296 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> TEJAS AYYAGARI </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 2.5 </td>
+   <td style="text-align:right;"> 1011 </td>
+   <td style="text-align:right;"> 1356 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ETHAN GUO </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 2.5 </td>
+   <td style="text-align:right;"> 935 </td>
+   <td style="text-align:right;"> 1495 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> JOSE C YBARRA </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 2.0 </td>
+   <td style="text-align:right;"> 1393 </td>
+   <td style="text-align:right;"> 1345 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> LARRY HODGE </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 2.0 </td>
+   <td style="text-align:right;"> 1270 </td>
+   <td style="text-align:right;"> 1206 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ALEX KONG </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 2.0 </td>
+   <td style="text-align:right;"> 1186 </td>
+   <td style="text-align:right;"> 1406 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> MARISA RICCI </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 2.0 </td>
+   <td style="text-align:right;"> 1153 </td>
+   <td style="text-align:right;"> 1414 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> MICHAEL LU </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 2.0 </td>
+   <td style="text-align:right;"> 1092 </td>
+   <td style="text-align:right;"> 1363 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> VIRAJ MOHILE </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 2.0 </td>
+   <td style="text-align:right;"> 917 </td>
+   <td style="text-align:right;"> 1391 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> SEAN M MC </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 2.0 </td>
+   <td style="text-align:right;"> 853 </td>
+   <td style="text-align:right;"> 1319 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> JULIA SHEN </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 1.5 </td>
+   <td style="text-align:right;"> 967 </td>
+   <td style="text-align:right;"> 1330 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> JEZZEL FARKAS </td>
+   <td style="text-align:left;"> ON </td>
+   <td style="text-align:right;"> 1.5 </td>
+   <td style="text-align:right;"> 955 </td>
+   <td style="text-align:right;"> 1327 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ASHWIN BALAJI </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 1.0 </td>
+   <td style="text-align:right;"> 1530 </td>
+   <td style="text-align:right;"> 1186 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> THOMAS JOSEPH HOSMER </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 1.0 </td>
+   <td style="text-align:right;"> 1175 </td>
+   <td style="text-align:right;"> 1350 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> BEN LI </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:right;"> 1.0 </td>
+   <td style="text-align:right;"> 1163 </td>
+   <td style="text-align:right;"> 1263 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+</tbody>
+</table>
+
+</div></div>
+    
+  </div>
+  
+</div>
+<!-- END QUESTION 5 -->
+
+<p class="w3-white">&nbsp;</p>
+
+
+<div class="w3-container w3-padding-large w3-section w3-light-grey">
+<!-- QUESTION 6 -->
+  <div id="6" class="column-left w3-code cssHigh notranslate w3-hover-sand w3-border-0">
+    <span>6</span>
+  </div>
+  <div class="column-center w3-code w3-button w3-hover-blue w3-opacity">
+    <span class="h1-maroon">
+      <strong>Create CSV</strong>
+    </span> <br />
+    <span>
+      Create CSV file chessInfo.csv in the working directory.
+    </span> <br /><br />
+    
+<div class="chunk" id="unnamed-chunk-7"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">write.csv</span><span class="hl std">(opData,</span> <span class="hl kwc">file</span> <span class="hl std">=</span> <span class="hl str">&quot;chessCSV.csv&quot;</span><span class="hl std">)</span>
+</pre></div>
+</div></div>
+    
+  </div>
+  
+</div>
+<!-- END QUESTION 6 -->
+
+<p class="w3-white">&nbsp;</p>
+
+
+<footer class="w3-container w3-padding-large w3-light-grey w3-justify w3-opacity">
+  <p><nav>
+  <a href="https://sps.cuny.edu/admissions" target="_blank"><span class="w3-padding w3-hover-blue">ADMISSIONS</span></a> |
+  <a href="https://sps.cuny.edu/about" target="_blank"><span class="w3-padding w3-hover-blue">ABOUT</span></a>
+  </nav></p>
+  
+  <p><nav>
+  <span class="w3-padding"><i>Please email to: </i> <a class="w3-text-indigo" href="mailto:kleber.perez@live.com"><strong>kleber.perez@live.com</strong></a> <i>for any suggestion.</i></span>
+  <br />
+  <span class="w3-padding">DATA607 Week 4 Project 1 - MSDS 2019 Program.</span>
+  </nav></p>
+</footer>
+
+</div>
+
+<div><br /><br /></div>
+
+
+<script>
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+openNav("nav01");
+function openNav(id) {
+  document.getElementById("nav01").style.display = "none";
+  document.getElementById("nav02").style.display = "none";
+  document.getElementById("nav03").style.display = "none";
+  document.getElementById(id).style.display = "block";
+}
+</script>
+
+<script src="https://www.w3schools.com/lib/w3codecolor.js"></script>
+
+<script>
+w3CodeColor();
+</script>
+
+
+</body>
+</html>
